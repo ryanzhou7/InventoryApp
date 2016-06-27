@@ -17,5 +17,7 @@ public class ProductContract {
         public static final String COLUMN_NAME_QUANTITY = "quantityColumn";
         public static final String COLUMN_NAME_PRICE_DOLLAR = "priceDollarColumn";
         public static final String COLUMN_NAME_PRICE_CENTS = "priceCentsColumn";
+        public static final String COLUMN_NAME_SUPPLIER_PHONE_NUMBER = "supplierPhoneNumberColumn";
+        public static final String COLUMN_NAME_IMAGE_RES_ID = "imageResIdColumn";
     }
 }

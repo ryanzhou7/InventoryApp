@@ -20,7 +20,7 @@
         android:layout_alignParentTop="true"
         android:orientation="vertical"
 
-        tools:context="com.ryanzhou.company.inventoryapp.DetailsActivity">
+        tools:context=".ui.ProductDetailsActivity">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -29,7 +29,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -41,18 +41,17 @@
                 android:textColor="@android:color/black" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/textViewProductName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/textView"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
-                android:layout_toEndOf="@+id/textView"
-                android:layout_toRightOf="@+id/textView"
+                android:layout_toEndOf="@+id/textView1"
+                android:layout_toRightOf="@+id/textView1"
                 android:gravity="right"
                 android:text="Large Text"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
         </RelativeLayout>
 
@@ -63,30 +62,29 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginRight="@dimen/widget_all_margin"
-                android:text="@string/product_name_title"
+                android:text="@string/product_price_title"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@android:color/black" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/textViewProductPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/textView"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
-                android:layout_toEndOf="@+id/textView"
-                android:layout_toRightOf="@+id/textView"
+                android:layout_toEndOf="@+id/textView2"
+                android:layout_toRightOf="@+id/textView2"
                 android:gravity="right"
                 android:text="Large Text"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
         </RelativeLayout>
 
@@ -98,33 +96,30 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginRight="@dimen/widget_all_margin"
-                android:text="@string/product_name_title"
+                android:text="@string/product_quantity_title"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@android:color/black" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/textViewProductQuantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/textView"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
-                android:layout_toEndOf="@+id/textView"
-                android:layout_toRightOf="@+id/textView"
+                android:layout_toEndOf="@+id/textView3"
+                android:layout_toRightOf="@+id/textView3"
                 android:gravity="right"
                 android:text="Large Text"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
+                android:textAppearance="?android:attr/textAppearanceMedium" />
         </RelativeLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -132,33 +127,61 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/buttonDecrement"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="New Button" />
+                android:layout_weight="1"
+                android:text="@string/decrement_product_quantity" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/buttonIncrement"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="New Button" />
+                android:layout_weight="1"
+                android:text="@string/increment_product_quantity" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/buttonSaveQuantityEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:text="@string/save_product_quantity_edit" />
+
+        <Button
+            android:id="@+id/buttonOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:text="@string/order_product" />
+
+        <Button
+            android:id="@+id/buttonDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:text="@string/delete_product" />
+
+        <ImageView
+            android:id="@+id/imageViewProductIcon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal" />
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_gravity="right"
-        android:text="New Button" />
 
 </RelativeLayout>
 

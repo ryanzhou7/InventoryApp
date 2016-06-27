@@ -3,7 +3,16 @@
     <string name="product_name_title"> Name</string>
     <string name="product_quantity_title"> Quantity</string>
     <string name="product_price_title"> Price</string>
+    <string name="enter_info_supplier_number"> Supplier Number</string>
+    <string name="enter_info_supplier_number_hint"> hint: numbers only format i.e. 0001112222</string>
     <string name="order_product"> Order Product</string>
+    <string name="delete_product"> Delete Product</string>
+    <string name="create_product_title"> Create Product</string>
+    <string name="delete_confirmation"> Are you sure you want to delete?</string>
     <string name="decrement_product_quantity"> -1 Sale made </string>
-    <string name="increment_product_quantity"> +1 Shipment arrived </string>
+    <string name="increment_product_quantity"> +1 New Shipment </string>
+    <string name="save_product_quantity_edit"> Save edits </string>
+    <string name="no_items_add_suggestions"> Click here to add new products </string>
 </resources>
+
+
