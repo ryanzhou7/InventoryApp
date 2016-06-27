@@ -58,14 +58,14 @@ public class AddProductActivity extends AppCompatActivity {
 
     private Boolean isAllDataEntryCorrect(){
         String toastMessage = null;
-        if( editTextProductName.getText().toString().length() == 0 )
+        if( editTextProductName.getText().toString().length() == 0 || editTextProductName.getText().toString().isEmpty() )
             toastMessage = "Product Name length must be over 0!";
         if( editTextProductPriceCents.getText().toString().length() != 2)
             toastMessage = "Product cents length must be 2!";
         if( editTextProductPriceDollars.getText().toString().length() == 0)
             toastMessage = "Product dollars length cannot be blank";
         if( editTextProductQuantity.getText().toString().length() == 0)
-            toastMessage = "Product Name length cannot be blank";
+            toastMessage = "Product quantity cannot be blank";
         if (editTextSupplierNumber.getText().length() != 10)
             toastMessage = "Supplier Number must be 10 digits";
         if( toastMessage == null)
