@@ -14,12 +14,14 @@ public class Products {
             R.drawable.ic_work_black_48dp,
     };
 
+    // stores the image database names
+    public static String[] imageNameDatabase = { "Tool", "Lock", "Case"};
+
     public static final Product[] sampleProducts = {
             //    public Product(int numDollars, int numCents, int quantity, String name, String supplierPhoneNumber,int imageResourceId) {
-            new Product(1, 50, 2, "Tool", "0001112222", imageId[0]),
-            new Product(4, 33, 4, "Lock", "0001112222", imageId[1]),
-            new Product(6, 99, 7, "Case", "0001112222", imageId[2])
+            new Product(1, 50, 2, imageNameDatabase[0], "0001112222", imageId[0]),
+            new Product(4, 33, 4, imageNameDatabase[1], "0001112222", imageId[1]),
+            new Product(6, 99, 7, imageNameDatabase[2], "0001112222", imageId[2])
     };
-
 
 }

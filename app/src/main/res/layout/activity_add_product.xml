@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/coordinatorLayoutProductDetails"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-    <LinearLayout
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -16,6 +16,7 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         tools:context=".ui.AddProductActivity">
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -75,6 +76,7 @@
                 android:id="@+id/editTextPriceDollars"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:ems="5"
                 android:digits="0123456789"
                 android:imeOptions="actionNext"
                 android:inputType="numberDecimal" />
@@ -101,24 +103,44 @@
 
         <TextView
             android:id="@+id/textView7"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/product_quantity_title"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <EditText
             android:id="@+id/editTextQuantity"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:digits="0123456789"
             android:ems="10"
             android:imeOptions="actionDone"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:singleLine="true" />
 
-        <Spinner
-            android:id="@+id/spinner"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/widget_all_margin">
+
+            <ImageView
+                android:id="@+id/imageViewSelectedIcon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/ic_build_black_48dp" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/imageViewSelectedIcon"
+                android:layout_toRightOf="@+id/imageViewSelectedIcon" />
+
+        </RelativeLayout>
 
         <Button
             android:id="@+id/buttonAddProduct"
@@ -128,6 +150,4 @@
             android:text="@string/create_product_title" />
 
     </LinearLayout>
-
-
-</android.support.design.widget.CoordinatorLayout>
+</ScrollView>

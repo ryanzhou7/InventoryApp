@@ -107,7 +107,7 @@ public class Product implements Parcelable {
         stringBuilder.append(String.valueOf(getNumDollars()));
         stringBuilder.append(".");
         stringBuilder.append(String.valueOf(getNumCents()));
-        if( getNumCents() < 10 )
+        if( getNumCents() == 0 )
             stringBuilder.append("0");
         return stringBuilder.toString();
     }

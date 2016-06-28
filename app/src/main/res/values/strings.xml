@@ -4,7 +4,7 @@
     <string name="product_quantity_title"> Quantity</string>
     <string name="product_price_title"> Price</string>
     <string name="enter_info_supplier_number"> Supplier Number</string>
-    <string name="enter_info_supplier_number_hint"> hint: numbers only format i.e. 0001112222</string>
+    <string name="enter_info_supplier_number_hint"> hint: numbers only format</string>
     <string name="order_product"> Order Product</string>
     <string name="delete_product"> Delete Product</string>
     <string name="create_product_title"> Create Product</string>
@@ -13,6 +13,23 @@
     <string name="increment_product_quantity"> +1 New Shipment </string>
     <string name="save_product_quantity_edit"> Save edits </string>
     <string name="no_items_add_suggestions"> Click here to add new products </string>
+
+    <string name="product_cents_error"> Product Name length must be over 0! </string>
+    <string name="product_dollar_error"> Product dollars length cannot be blank </string>
+    <string name="product_quantity_error"> Product quantity cannot be blank </string>
+    <string name="product_supplier_number_error">  Supplier Number must be 10 digits </string>
+    <string name="product_name_error">Product Name length must be over 0!</string>
+
+    <string name="tool_icon"> Tool</string>
+    <string name="lock_icon"> Lock</string>
+    <string name="case_icon"> Case</string>
+
+    <string-array name="icons_array">
+        <item>Tool</item>
+        <item>Lock</item>
+        <item>Case</item>
+    </string-array>
+
 </resources>
 
 

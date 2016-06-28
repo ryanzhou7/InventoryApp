@@ -4,12 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.ryanzhou.company.inventoryapp.R;
-import com.ryanzhou.company.inventoryapp.SimpleImageArrayAdapter;
 import com.ryanzhou.company.inventoryapp.data.Products;
 import com.ryanzhou.company.inventoryapp.model.Product;
 
@@ -21,7 +21,7 @@ public class AddProductActivity extends AppCompatActivity {
 
     public static final int ADD_PRODUCT_REQUEST = 100;
     public static final int ADD_PRODUCT_OK_RESPONSE = 1001;
-    private Spinner spinner;
+    @BindView(R.id.spinner) Spinner spinner;
     @BindView(R.id.editTextProductName) EditText editTextProductName;
     @BindView(R.id.editTextQuantity) EditText editTextProductQuantity;
     @BindView(R.id.editTextPriceDollars) EditText editTextProductPriceDollars;
@@ -37,7 +37,7 @@ public class AddProductActivity extends AppCompatActivity {
             int centsPrice = Integer.valueOf( editTextProductPriceCents.getText().toString() );
             int quantity = Integer.valueOf( editTextProductQuantity.getText().toString() );
             Intent intent = new Intent();
-            int imageId = Products.imageId[ spinner.getSelectedItemPosition() ];
+            int imageId = Products.imageId[spinner.getSelectedItemPosition()];
             intent.putExtra(Product.PRODUCT_BUNDLE_KEY,
                     new Product(dollarsPrice, centsPrice, quantity, name, supplierNumber, imageId));
             setResult(ADD_PRODUCT_OK_RESPONSE, intent);
@@ -50,24 +50,27 @@ public class AddProductActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_product);
         ButterKnife.bind(this);
 
-        spinner = (Spinner) findViewById(R.id.spinner);
-        SimpleImageArrayAdapter adapter = new SimpleImageArrayAdapter(getApplicationContext(),
-                Products.imageId);
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.icons_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+
     }
+
 
     private Boolean isAllDataEntryCorrect(){
         String toastMessage = null;
         if( editTextProductName.getText().toString().length() == 0 || editTextProductName.getText().toString().isEmpty() )
-            toastMessage = "Product Name length must be over 0!";
+            toastMessage = getString(R.string.product_name_error);
         if( editTextProductPriceCents.getText().toString().length() != 2)
-            toastMessage = "Product cents length must be 2!";
+            toastMessage = getString(R.string.product_cents_error);
         if( editTextProductPriceDollars.getText().toString().length() == 0)
-            toastMessage = "Product dollars length cannot be blank";
+            toastMessage = getString(R.string.product_dollar_error);
         if( editTextProductQuantity.getText().toString().length() == 0)
-            toastMessage = "Product quantity cannot be blank";
+            toastMessage = getString(R.string.product_quantity_error);
         if (editTextSupplierNumber.getText().length() != 10)
-            toastMessage = "Supplier Number must be 10 digits";
+            toastMessage = getString(R.string.product_supplier_number_error);
         if( toastMessage == null)
             return true;
         Toast.makeText(getApplicationContext(), toastMessage,

@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements MyProductRecycler
         recyclerView = (RecyclerView) findViewById(R.id.list);
         productDbHelper = new ProductDbHelper(getApplicationContext());
 
-        //testCleanDb();
+        testCleanDb();
         //putSampleProductsInDb();
         printTable();
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -94,7 +94,6 @@ public class MainActivity extends AppCompatActivity implements MyProductRecycler
         myProductRecyclerViewAdapter.getmValues().clear();
         myProductRecyclerViewAdapter.getmValues().addAll( getAllProductsListFromDb());
         myProductRecyclerViewAdapter.notifyDataSetChanged();
-        printTable();
     }
 
     private void testCleanDb() {

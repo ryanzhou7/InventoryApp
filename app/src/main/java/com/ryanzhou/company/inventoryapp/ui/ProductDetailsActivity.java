@@ -42,7 +42,6 @@ public class ProductDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
         ButterKnife.bind(this);
-        coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorLayoutProductDetails);
         product = getIntent().getParcelableExtra(Product.PRODUCT_BUNDLE_KEY);
         textViewProductName.setText(product.getName());
         textViewProductPrice.setText(product.getPriceForDisplay());
