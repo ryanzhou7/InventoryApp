@@ -4,7 +4,7 @@
     <string name="product_quantity_title"> Quantity</string>
     <string name="product_price_title"> Price</string>
     <string name="enter_info_supplier_number"> Supplier Number</string>
-    <string name="enter_info_supplier_number_hint"> hint: numbers only format</string>
+    <string name="enter_info_supplier_number_hint"> hint: numbers only format 10 digits</string>
     <string name="order_product"> Order Product</string>
     <string name="delete_product"> Delete Product</string>
     <string name="create_product_title"> Create Product</string>

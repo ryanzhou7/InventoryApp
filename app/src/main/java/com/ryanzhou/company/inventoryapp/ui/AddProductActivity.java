@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -17,7 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class AddProductActivity extends AppCompatActivity {
+public class AddProductActivity extends AppCompatActivity{
 
     public static final int ADD_PRODUCT_REQUEST = 100;
     public static final int ADD_PRODUCT_OK_RESPONSE = 1001;
@@ -27,6 +29,7 @@ public class AddProductActivity extends AppCompatActivity {
     @BindView(R.id.editTextPriceDollars) EditText editTextProductPriceDollars;
     @BindView(R.id.editTextPriceCents) EditText editTextProductPriceCents;
     @BindView(R.id.editTextSupplierNumber) EditText editTextSupplierNumber;
+    @BindView(R.id.imageViewSelectedIcon) ImageView imageViewIconSelected;
 
     @OnClick(R.id.buttonAddProduct)
     public void addProduct(View view){
@@ -50,11 +53,20 @@ public class AddProductActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_product);
         ButterKnife.bind(this);
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.icons_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+        imageViewIconSelected.setImageResource( Products.imageId[0] );
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                imageViewIconSelected.setImageResource( Products.imageId[position] );
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {}
+        });
 
     }
 

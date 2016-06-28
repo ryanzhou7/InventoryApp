@@ -48,9 +48,6 @@ public class MainActivity extends AppCompatActivity implements MyProductRecycler
         recyclerView = (RecyclerView) findViewById(R.id.list);
         productDbHelper = new ProductDbHelper(getApplicationContext());
 
-        testCleanDb();
-        //putSampleProductsInDb();
-        printTable();
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,15 +58,18 @@ public class MainActivity extends AppCompatActivity implements MyProductRecycler
 
         List<Product> products = getAllProductsListFromDb();
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        myProductRecyclerViewAdapter = new MyProductRecyclerViewAdapter( products, MainActivity.this);
+        myProductRecyclerViewAdapter = new MyProductRecyclerViewAdapter(products, MainActivity.this);
         recyclerView.setAdapter(myProductRecyclerViewAdapter);
+        checkIfDisplayInfoText( products);
+    }
+
+    private void checkIfDisplayInfoText( List<Product> products ){
         if (products.size() == 0) {
             textViewNoItemsInfo.setVisibility(View.VISIBLE);
         } else {
             textViewNoItemsInfo.setVisibility(View.GONE);
         }
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -92,8 +92,9 @@ public class MainActivity extends AppCompatActivity implements MyProductRecycler
         }
 
         myProductRecyclerViewAdapter.getmValues().clear();
-        myProductRecyclerViewAdapter.getmValues().addAll( getAllProductsListFromDb());
+        myProductRecyclerViewAdapter.getmValues().addAll(getAllProductsListFromDb());
         myProductRecyclerViewAdapter.notifyDataSetChanged();
+        checkIfDisplayInfoText( myProductRecyclerViewAdapter.getmValues() );
     }
 
     private void testCleanDb() {
@@ -195,7 +196,7 @@ public class MainActivity extends AppCompatActivity implements MyProductRecycler
         SQLiteDatabase sqLiteDatabaseWriteable = productDbHelper.getWritableDatabase();
         sqLiteDatabaseWriteable.execSQL("DELETE FROM " +
                 ProductContract.ProductEntry.TABLE_NAME +
-                " WHERE " + ProductContract.ProductEntry.COLUMN_NAME_NAME + " = " + "\'" +name +"\'"
+                " WHERE " + ProductContract.ProductEntry.COLUMN_NAME_NAME + " = " + "\'" + name + "\'"
         );
     }
 
